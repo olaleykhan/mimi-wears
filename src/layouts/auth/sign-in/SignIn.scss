@@ -1,0 +1,29 @@
+.sign-in {
+  width: 35vw;
+  h2 {
+    text-align: center;
+    color: grey;
+  }
+  span {
+    color: gray;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    // margin: auto;
+  }
+
+  form {
+    .submit-btns {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 40px;
+
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
