@@ -1,0 +1,31 @@
+@import "../../../global.scss";
+
+button {
+  background-color: inherit;
+  outline: none;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  border: 1px solid $primary;
+  color: $primary;
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed";
+  font-weight: bolder;
+
+  cursor: pointer;
+  &:hover {
+    color: $light;
+    background-color: $primary;
+  }
+  &.google {
+    color: #5295ec;
+    border: 1px solid #5295ec;
+    &:hover {
+      background-color: #5295ec;
+    }
+  }
+}
