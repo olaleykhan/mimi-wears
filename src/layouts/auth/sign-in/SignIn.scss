@@ -1,5 +1,5 @@
 .sign-in {
-  width: 35vw;
+  width: 40vw;
   h2 {
     text-align: center;
     color: grey;
@@ -19,11 +19,19 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      margin-top: 40px;
+      margin-top: 10px;
 
       button {
         margin-bottom: 10px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sign-in {
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 30px;
   }
 }

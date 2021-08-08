@@ -1,6 +1,6 @@
 @import "../../../global.scss";
 
-button {
+.button {
   background-color: inherit;
   outline: none;
   padding: 15px 25px;
@@ -26,6 +26,17 @@ button {
     border: 1px solid #5295ec;
     &:hover {
       background-color: #5295ec;
+      color: $light;
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .button {
+    padding: 8px 15px;
+
+    font-size: 12px;
+    min-width: 80px;
+    height: 40px;
   }
 }
