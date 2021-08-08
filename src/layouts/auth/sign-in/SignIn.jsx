@@ -52,8 +52,7 @@ export class SignIn extends Component {
           <div className="submit-btns">
             <Button type="submit"> Submit </Button>
             <Button type="button" behaviour="google" onClick={signInWithGoogle}>
-              {" "}
-              Signin With Google{" "}
+              Signin With Google
             </Button>
           </div>
         </form>

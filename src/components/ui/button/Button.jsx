@@ -4,7 +4,10 @@ import "./Button.scss";
 const Button = ({ children, behaviour, ...otherProps }) => {
   return (
     <>
-      <button className={behaviour ? behaviour : "" + "button"} {...otherProps}>
+      <button
+        className={`button ${behaviour ? behaviour : null}`}
+        {...otherProps}
+      >
         {children}
       </button>
     </>

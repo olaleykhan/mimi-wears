@@ -2,8 +2,9 @@ import React from 'react';
 import HomePage from '../pages/HomePage';
 import Shop from '../pages/shop/Shop';
 import Header from '../layouts/header/Header';
-// import Auth from "../Pages/auth/Auth"
-import Auth from "../pages/auth/Auth.jsx"
+// import Auth from "../pages/auth/Auth"
+import Auth from '../pages/auth/Auth'
+// import Auth from "../pages/auth/Auth.jsx"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const Routes = ({ currentUser }) => {

@@ -13,7 +13,7 @@ const shopCategoryPreview = ({ title, routeName, items }) => {
         )}
       </div>
       <Link to={`/shop/${routeName}`}>
-        <button> open collection</button>
+        <button>open collection</button>
       </Link>
     </div>
   );
