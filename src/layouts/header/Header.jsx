@@ -8,6 +8,7 @@ import logo from "../../assets/alaf-logo.png";
 import "./Header.scss";
 
 const Header = ({ currentUser }) => {
+  console.log(currentUser);
   return (
     <>
       <nav className="header">
