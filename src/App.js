@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser } from './store/actions/user-actions/userActions';
+import { setCurrentUser } from './store/actions/index.actions';
 
 import './App.css';
 
-import Routes from './routes/Routes';
+import Routes from './routes/Routes.jsx';
 
 
 class App extends React.Component {
@@ -26,7 +26,7 @@ class App extends React.Component {
         });
       }
       else {
-        this.setState({ currentUser: userAuth });
+        setCurrentUser(null);
       }
 
     })
@@ -45,7 +45,7 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  setCurrentUser: (user) => { dispatch(setCurrentUser(user)) }
 });
 
 export default connect(null, mapDispatchToProps)(App);

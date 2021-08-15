@@ -1,4 +1,7 @@
 import React from "react";
+// import { connect } from "react-redux";
+// import { Redirect } from "react-router";
+
 import SignIn from "../../layouts/auth/sign-in/SignIn";
 import SignUp from "../../layouts/auth/sign-up/SignUp";
 import "./Auth.scss";
