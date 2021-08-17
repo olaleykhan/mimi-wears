@@ -1,18 +1,34 @@
-import React from 'react'
-import "./ShopCollectionItem.scss"
+import React from "react";
+import { connect } from "react-redux";
 
-const ShopCollectionItem = ({ imageUrl, name, price }) => {
-    return (
-        <div className="shop-collection-item">
-            <img src={imageUrl} alt={name} />
-            <div className="details">
-                <p>{name}</p>
-                <p>${price}</p>
-            </div>
+import { addItemToCart } from "../../store/actions/index.actions";
 
+import Button from "../ui/button/Button";
+import "./ShopCollectionItem.scss";
 
-        </div>
-    )
-}
+const ShopCollectionItem = ({ item, addItemToCart }) => {
+  // console.log(item);
+  const { imageUrl, name, price } = item;
 
-export default ShopCollectionItem
+  return (
+    <div className="shop-collection-item">
+      <img src={imageUrl} alt={name} />
+      <div className="details">
+        <p>{name}</p>
+        <p>${price}</p>
+      </div>
+
+      <div className="add-to-cart-btn">
+        <Button behaviour="dark" onClick={() => addItemToCart(item)}>
+          ADD TO CART
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addItemToCart: (value) => dispatch(addItemToCart(value)),
+});
+
+export default connect(null, mapDispatchToProps)(ShopCollectionItem);

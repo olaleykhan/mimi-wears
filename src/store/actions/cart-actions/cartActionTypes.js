@@ -1,0 +1,2 @@
+export const TOGGLE_DISPLAY_CART = "TOGGLE_DISPLAY_CART";
+export const ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART";

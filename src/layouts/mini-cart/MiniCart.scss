@@ -1,0 +1,22 @@
+@import "../../global.scss";
+
+.mini-cart {
+  border: 1px solid $primary;
+  background-color: $light;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 2;
+  .cart-items {
+    height: 240px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+  button {
+    display: block;
+    width: 100%;
+    margin: auto auto 0px auto;
+  }
+}
