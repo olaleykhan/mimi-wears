@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { auth } from "../../firebase/firebase.utils";
-
 import logo from "../../assets/alaf-logo.png";
-import "./Header.scss";
 
-const Header = ({ currentUser }) => {
-  console.log(currentUser);
+import CartIcon from "../../components/ui/cart-icon/CartIcon";
+import MiniCart from "../mini-cart/MiniCart";
+import "./Header.scss";
+import { toggleDisplayCart } from "../../store/actions/index.actions";
+
+const Header = ({ currentUser, displayCart, toggleCart }) => {
+  // console.log(displayCart, "discrt", toggleCart, "tgcrt");
   return (
     <>
       <nav className="header">
@@ -30,10 +33,13 @@ const Header = ({ currentUser }) => {
               <li> Sign-in</li>
             </Link>
           )}
+
+          <CartIcon onClick={toggleCart} />
           {/* <Link to="/auth">
             <li>Auth</li>
           </Link> */}
         </ul>
+        {displayCart ? <MiniCart /> : ""}
       </nav>
     </>
   );
@@ -41,6 +47,10 @@ const Header = ({ currentUser }) => {
 
 const mapStateToProps = (state) => ({
   currentUser: state.userReducer.currentUser,
+  displayCart: state.cartReducer.displayMiniCart,
+});
+const mapDispatchToProps = (dispatch) => ({
+  toggleCart: () => dispatch(toggleDisplayCart()),
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
