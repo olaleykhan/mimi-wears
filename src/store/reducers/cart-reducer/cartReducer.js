@@ -1,5 +1,5 @@
 import { TOGGLE_DISPLAY_CART, ADD_ITEM_TO_CART } from "../../actions/cart-actions/cartActionTypes";
-import { addItemToCart } from "../../actions/index.actions";
+import { addItemToCart } from "../../../utils/cart-utils/cartUtils";
 
 const INITIAL_STATE = {
     displayMiniCart: false,

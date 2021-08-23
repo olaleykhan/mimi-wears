@@ -1,0 +1,61 @@
+@import "../../global.scss";
+.flat-display-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  color: $primary;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08);
+  align-items: center;
+
+  img {
+    width: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+    // flex: 0;
+  }
+  .details {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .options {
+      display: flex;
+      justify-content: space-evenly;
+      .quantity {
+        margin-right: 10px;
+        .reduce {
+          margin-right: 10px;
+          font-size: 18px;
+          font-weight: bolder;
+          cursor: pointer;
+        }
+        .count {
+          margin: 0px 10px;
+          font-size: 18px;
+        }
+        .increase {
+          margin-right: 10px;
+          font-size: 18px;
+          font-weight: bolder;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .flat-display-card {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .details {
+      flex-direction: column;
+    }
+  }
+}

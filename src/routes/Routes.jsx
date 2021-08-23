@@ -2,6 +2,7 @@ import React from "react";
 import HomePage from "../pages/HomePage";
 import Shop from "../pages/shop/Shop";
 import Header from "../layouts/header/Header";
+import Checkout from "../pages/checkout/Checkout";
 // import Auth from "../pages/auth/Auth"
 import Auth from "../pages/auth/Auth";
 // import Auth from "../pages/auth/Auth.jsx"
@@ -24,7 +25,8 @@ const Routes = ({ isLoggedIn }) => {
         {/* {loggedIn ? <Redirect to="/dashboard" /> : <PublicHomePage />} */}
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/shop" exact component={Shop} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/checkout" exact component={Checkout} />
           {/* <Route path="/auth" exact {isLoggedIn ? <Redirect to="/dashboard" /> : <Auth />} /> */}
           <Route exact path="/auth">
             {isLoggedIn ? <Redirect to="/" /> : <Auth />}

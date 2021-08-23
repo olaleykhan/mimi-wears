@@ -10,3 +10,12 @@ export const addItemToCart = (oldItems, newItem) => {
     return [...oldItems, { ...newItem, quantity: 1 }];
 
 };
+
+
+// this function assumes that the first argument is an array that contains objects.
+// second argument is the name of the property that we wish to accumulate from the object 
+
+export const reduceItem = (arr, prop) => {
+    return arr.reduce((acc, item) => acc + item[prop], 0)
+
+}
