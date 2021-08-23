@@ -16,7 +16,15 @@
     position: absolute;
     font-size: 12px;
     font-weight: bold;
-    top: -1px;
-    color: $primary;
+    top: -6px;
+    background-color: $primary;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
 }

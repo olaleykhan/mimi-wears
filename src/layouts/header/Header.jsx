@@ -10,7 +10,15 @@ import MiniCart from "../mini-cart/MiniCart";
 import "./Header.scss";
 import { toggleDisplayCart } from "../../store/actions/index.actions";
 
-const Header = ({ currentUser, displayCart, toggleCart }) => {
+// const itemCumulative = (arr, digit) => {
+//   // this function assumes that the first argument is an array that contains objects.
+//   // second agument is the property of the  object in the array to be accumulated / summed up
+//   return arr.reduce((acc, arrItem) => acc + arrItem[digit], 0);
+// };
+
+const Header = ({ currentUser, displayCart, toggleCart, cartCount }) => {
+  // console.log(toggleDisplayCart);
+  // console.log(toggleCart);
   // console.log(displayCart, "discrt", toggleCart, "tgcrt");
   return (
     <>
@@ -34,21 +42,25 @@ const Header = ({ currentUser, displayCart, toggleCart }) => {
             </Link>
           )}
 
-          <CartIcon onClick={toggleCart} />
+          <CartIcon cartCount={cartCount} onClick={toggleCart} />
+
           {/* <Link to="/auth">
             <li>Auth</li>
           </Link> */}
         </ul>
-        {displayCart ? <MiniCart /> : ""}
+        {displayCart ? <MiniCart /> : null}
       </nav>
     </>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.userReducer.currentUser,
-  displayCart: state.cartReducer.displayMiniCart,
-});
+const mapStateToProps = ({ userReducer, cartReducer }) => {
+  console.log("i am being called");
+  return {
+    currentUser: userReducer.currentUser,
+    displayCart: cartReducer.displayMiniCart,
+  };
+};
 const mapDispatchToProps = (dispatch) => ({
   toggleCart: () => dispatch(toggleDisplayCart()),
 });
