@@ -9,8 +9,8 @@ import MiniCartItem from "../../components/cart/mini-cart-item/MiniCartItem";
 import "./MiniCart.scss";
 
 const MiniCart = ({ cartItems, history, closeCart }) => {
-  console.log(toggleDisplayCart);
-  console.log(closeCart);
+  // console.log(toggleDisplayCart);
+  // console.log(closeCart);
   return (
     <div className="mini-cart">
       <div className="cart-items">

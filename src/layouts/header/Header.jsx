@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
 import logo from "../../assets/alaf-logo.png";
@@ -8,15 +9,11 @@ import logo from "../../assets/alaf-logo.png";
 import CartIcon from "../../components/ui/cart-icon/CartIcon";
 import MiniCart from "../mini-cart/MiniCart";
 import "./Header.scss";
-import { toggleDisplayCart } from "../../store/actions/index.actions";
 
-// const itemCumulative = (arr, digit) => {
-//   // this function assumes that the first argument is an array that contains objects.
-//   // second agument is the property of the  object in the array to be accumulated / summed up
-//   return arr.reduce((acc, arrItem) => acc + arrItem[digit], 0);
-// };
+import { selectCartHidden } from "../../store/reducers/cart-reducer/cartSelector";
+import { selectCurrentUser } from "../../store/reducers/user-reducer/userSelector";
 
-const Header = ({ currentUser, displayCart, toggleCart, cartCount }) => {
+const Header = ({ currentUser, displayCart, cartCount }) => {
   // console.log(toggleDisplayCart);
   // console.log(toggleCart);
   // console.log(displayCart, "discrt", toggleCart, "tgcrt");
@@ -42,7 +39,7 @@ const Header = ({ currentUser, displayCart, toggleCart, cartCount }) => {
             </Link>
           )}
 
-          <CartIcon cartCount={cartCount} onClick={toggleCart} />
+          <CartIcon cartCount={cartCount} />
 
           {/* <Link to="/auth">
             <li>Auth</li>
@@ -54,15 +51,15 @@ const Header = ({ currentUser, displayCart, toggleCart, cartCount }) => {
   );
 };
 
-const mapStateToProps = ({ userReducer, cartReducer }) => {
-  console.log("i am being called");
-  return {
-    currentUser: userReducer.currentUser,
-    displayCart: cartReducer.displayMiniCart,
-  };
-};
-const mapDispatchToProps = (dispatch) => ({
-  toggleCart: () => dispatch(toggleDisplayCart()),
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  displayCart: selectCartHidden,
 });
+//   (state) => {
+//   console.log("i am being called");
+//   return {
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+//   };
+// };
+
+export default connect(mapStateToProps)(Header);

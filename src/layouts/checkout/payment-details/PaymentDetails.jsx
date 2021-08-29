@@ -1,8 +1,8 @@
 import React from "react";
 import "./PaymentDetails.scss";
 
-const PaymentDetails = () => {
-  return <div className="payment-details">PAyment costs go here.</div>;
+const PaymentDetails = ({ totalCost }) => {
+  return <div className="payment-details">total cost is {totalCost}</div>;
 };
 
 export default PaymentDetails;

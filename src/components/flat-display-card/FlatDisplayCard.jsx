@@ -2,8 +2,12 @@ import React from "react";
 import "./FlatDisplayCard.scss";
 import { connect } from "react-redux";
 import { addItemToCart } from "../../store/actions/index.actions";
+import {
+  reduceCartItemQuantity,
+  removeItemFromCart,
+} from "../../store/actions/index.actions";
 
-function FlatDisplayCard({ item, increaseItem }) {
+function FlatDisplayCard({ item, increaseItem, reduceItem, removeItem }) {
   const { imageUrl, name, price, quantity } = item;
   console.log(price, "naira and quantity is ", quantity);
   return (
@@ -19,11 +23,16 @@ function FlatDisplayCard({ item, increaseItem }) {
 
         <div className="options">
           <div className="quantity">
-            <span className="reduce">{"<  "}</span>
+            <span onClick={() => reduceItem(item)} className="reduce">
+              &#10094;
+            </span>
             <span className="count"> {quantity} </span>
             <span onClick={() => increaseItem(item)} className="increase">
-              {" >"}
+              &#10095;
             </span>
+          </div>
+          <div onClick={() => removeItem(item)} className="cost quantity">
+            X
           </div>
 
           <div className="cost"> $ {price * quantity}</div>
@@ -35,6 +44,8 @@ function FlatDisplayCard({ item, increaseItem }) {
 
 const mapDispatchToProps = (dispatch) => ({
   increaseItem: (value) => dispatch(addItemToCart(value)),
+  reduceItem: (value) => dispatch(reduceCartItemQuantity(value)),
+  removeItem: (value) => dispatch(removeItemFromCart(value)),
 });
 
 export default connect(null, mapDispatchToProps)(FlatDisplayCard);

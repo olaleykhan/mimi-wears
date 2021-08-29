@@ -1,11 +1,4 @@
 import React from "react";
-import HomePage from "../pages/HomePage";
-import Shop from "../pages/shop/Shop";
-import Header from "../layouts/header/Header";
-import Checkout from "../pages/checkout/Checkout";
-// import Auth from "../pages/auth/Auth"
-import Auth from "../pages/auth/Auth";
-// import Auth from "../pages/auth/Auth.jsx"
 import { connect } from "react-redux";
 import {
   BrowserRouter as Router,
@@ -13,6 +6,16 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+
+import { selectCurrentUser } from "../store/reducers/user-reducer/userSelector";
+
+import HomePage from "../pages/HomePage";
+import Shop from "../pages/shop/Shop";
+import Header from "../layouts/header/Header";
+import Checkout from "../pages/checkout/Checkout";
+import Auth from "../pages/auth/Auth";
+
+// import Auth from "../pages/auth/Auth.jsx"
 
 const Routes = ({ isLoggedIn }) => {
   return (
@@ -38,7 +41,7 @@ const Routes = ({ isLoggedIn }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: state.userReducer.currentUser,
+  isLoggedIn: selectCurrentUser(state),
 });
 
 export default connect(mapStateToProps)(Routes);

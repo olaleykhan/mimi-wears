@@ -1,24 +1,23 @@
-import React, { Component } from "react";
-import ShopCategoryPreview from "../../layouts/shop-category/ShopCategoryPreview";
-import { SHOP_DATA } from "../../assets/directoryData";
+import React from "react";
+import { Route } from "react-router";
 
-export class Shop extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collections: SHOP_DATA,
-    };
-  }
-  render() {
-    const { collections } = this.state;
-    return (
-      <div>
-        {collections.map(({ id, ...collection }) => {
-          return <ShopCategoryPreview key={id} {...collection} />;
-        })}
-      </div>
-    );
-  }
+import ShopWrapper from "../../layouts/shop/shop-wrapper/ShopWrapper";
+import ShopCollection from "../../layouts/shop/shop-collection/ShopCollection";
+
+const Shop = ({ match }) => {
+  return (
+    <div>
+
+      <Route exact path={match.path} component={ShopWrapper} />
+      <Route exact path={`${match.path}/:name`} component={ShopCollection} />
+
+    </div>
+  );
+
 }
+
+// const mapStateToProps = createStructuredSelector({
+//   collections: selectShopData,
+// })
 
 export default Shop;
